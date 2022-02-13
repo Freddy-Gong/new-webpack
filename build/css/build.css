@@ -1,0 +1,14 @@
+/*!*************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js!./src/index.css ***!
+  \*************************************************************************************************************/
+html,body{
+    background-color: aqua;
+    height: 100%;
+    background-image: url(../af71773ce98dfb6b5d68.png);
+    display: grid;
+    backface-visibility: hidden;
+}
+img{
+    height: 20px;
+    width: 20px;
+}
