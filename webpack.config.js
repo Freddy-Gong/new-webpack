@@ -9,6 +9,10 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const webpack = require('webpack')
+const { resolve } = require('path')
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 //plugin是一个构造函数
 //设置node环境变量
 //process.env.NODE_ENV = 'development'
@@ -29,11 +33,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 //   }
 module.exports = {
     //webpack配置
-    entry: './src/index.js',
+    //单入口
+    entry: ['./src/index.js', './src/index.html'],
     output: {
-        filename: 'build.js',
+        filename: 'build[contenthash:10].js',
         path: path.resolve(__dirname, 'build')
     },
+
     //loader配置
     module: {
         rules: [
@@ -144,7 +150,8 @@ module.exports = {
                                 }
                             }
                         ]
-                    ]
+                    ],
+                    cacheDirectory: true
                 }
             }
         ]
@@ -171,7 +178,23 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             //对打包出来的css文件重命名
-            filename: 'css/build.css'
+            filename: 'css/build[hash:10].css'
+        }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            /**
+             * 1. serviceworker快速启动
+             * 2. 删除旧的serviceworker
+             */
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
+        //高速webpack那个库不需要打包，同时使用时候的名称也变了
+        new webpack.DllReferencePlugin({
+            manifest: resolve(__dirname, 'dll/manifest.json')
+        }),
+        //将某个文件打包输出，并以script标签的形式插入到html文件中
+        new AddAssetHtmlWebpackPlugin({
+            filepath: resolve(__dirname, 'dll/jquery.js')
         })
     ],
     //生产环境会自动压缩js文件
@@ -188,6 +211,8 @@ module.exports = {
         //启动gzip压缩
         compress: true,
         port: 3000,
-        open: true
-    }
+        open: true,
+        hot: true
+    },
+    devtool: 'inline-source-map'
 }
