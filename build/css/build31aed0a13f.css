@@ -1,0 +1,16 @@
+/*!*************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/dist/cjs.js!./src/index.css ***!
+  \*************************************************************************************************************/
+html,body{
+    background-color: red;
+    height: 100%;
+    background-image: url(../af71773ce98dfb6b5d68.png);
+    display: grid;
+    backface-visibility: hidden;
+}
+img{
+    height: 20px;
+    width: 20px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3NzL2J1aWxkMzFhZWQwYTEzZi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7SUFDSSxxQkFBcUI7SUFDckIsWUFBWTtJQUNaLHlEQUEyQztJQUMzQyxhQUFhO0lBQ2IsMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly93ZWJwYWNrLXRlc3QvLi9zcmMvaW5kZXguY3NzIl0sInNvdXJjZXNDb250ZW50IjpbImh0bWwsYm9keXtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vYXNzZXJ0L2Nha2UucG5nJyk7XG4gICAgZGlzcGxheTogZ3JpZDtcbiAgICBiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47XG59XG5pbWd7XG4gICAgaGVpZ2h0OiAyMHB4O1xuICAgIHdpZHRoOiAyMHB4O1xufSJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==*/
